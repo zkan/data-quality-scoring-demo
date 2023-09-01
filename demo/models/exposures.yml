@@ -1,0 +1,18 @@
+version: 2
+
+exposures:
+
+  - name: data_quality_scoring_demo
+    label: Data Quality Score Dashboard
+    type: dashboard
+    maturity: high
+    url: https://lookerstudio.google.com/reporting/d71af14e-2b43-4639-b8d9-0076bfd67fb8
+    description: >
+      Data Quality Score Dashboard
+
+    depends_on:
+      - ref('bi_dq_metrics')
+
+    owner:
+      name: Kan Ouivirach
+      email: kan@dataengineercafe.io
