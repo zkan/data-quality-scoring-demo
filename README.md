@@ -1,2 +1,1 @@
-# data-quality-scoring-demo
-Data Quality Scoring Demo
+# Data Quality Scoring Demo
