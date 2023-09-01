@@ -1,0 +1,15 @@
+demo:
+  outputs:
+    dbt_zkan:
+      type: bigquery
+      method: service-account
+      project: dataengineercafe
+      dataset: breakfast_at_the_frat
+      keyfile: dataengineercafe-admin-bfd4db61182a.json
+      location: asia-southeast1
+      fixed_retries: 1
+      priority: interactive
+      threads: 3
+      timeout_seconds: 300
+
+  target: dbt_zkan

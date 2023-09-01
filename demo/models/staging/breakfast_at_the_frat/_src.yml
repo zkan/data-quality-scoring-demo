@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: breakfast_at_the_frat
+    database: dataengineercafe
+    schema: breakfast_at_the_frat
+    tables:
+      - name: products
+      - name: stores
+      - name: transactions
