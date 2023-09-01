@@ -8,6 +8,8 @@ packages = [{include = "data_quality_scoring_demo"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+dbt-core = "^1.6.1"
+dbt-bigquery = "^1.6.4"
 
 
 [build-system]
