@@ -13,8 +13,16 @@ models:
       - name: customer_id
         description: This is a unique identifier for a customer
         tests:
-          - unique
-          - not_null
+          # - unique
+          # - not_null
+          - dq_tools.unique_where_db:
+              # where: "_deleted = false"
+              severity_level: error
+              kpi_category: Uniqueness
+          - dq_tools.not_null_where_db:
+              # where: "_deleted = false"
+              severity_level: error
+              kpi_category: Completeness
 
       - name: first_name
         description: Customer's first name. PII.
@@ -44,17 +52,39 @@ models:
     columns:
       - name: order_id
         tests:
-          - unique
-          - not_null
+          # - unique
+          # - not_null
+          - dq_tools.unique_where_db:
+              # where: "_deleted = false"
+              severity_level: error
+              kpi_category: Uniqueness
+          - dq_tools.not_null_where_db:
+              # where: "_deleted = false"
+              severity_level: error
+              kpi_category: Completeness
         description: This is a unique identifier for an order
 
       - name: customer_id
         description: Foreign key to the customers table
         tests:
-          - not_null
-          - relationships:
+          # - not_null
+          - dq_tools.unique_where_db:
+              # where: "_deleted = false"
+              severity_level: error
+              kpi_category: Uniqueness
+          - dq_tools.not_null_where_db:
+              # where: "_deleted = false"
+              severity_level: error
+              kpi_category: Completeness
+          # - relationships:
+          #     to: ref('dim_customers')
+          #     field: customer_id
+          - dq_tools.relationships_where_db:
               to: ref('dim_customers')
               field: customer_id
+              # from_condition: id <> '4ca448b8-24bf-4b88-96c6-b1609499c38b'
+              severity_level: warn
+              kpi_category: Consistency
 
       - name: order_date
         description: Date (UTC) that the order was placed
