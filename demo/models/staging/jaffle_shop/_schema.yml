@@ -20,8 +20,13 @@ models:
           - not_null
       - name: status
         tests:
-          - accepted_values:
-              values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+          # - accepted_values:
+          #     values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+          - dq_tools.accepted_values_where_db:
+              values: ['placed', 'shipped', 'completed', 'return_pending']
+              # values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
+              severity_level: warn
+              kpi_category: Accuracy
   - name: stg_jaffle_shop__stripe_payments
     columns:
       - name: payment_id
@@ -30,5 +35,10 @@ models:
           - not_null
       - name: payment_method
         tests:
-          - accepted_values:
-              values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
+          # - accepted_values:
+          #     values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
+          - dq_tools.accepted_values_where_db:
+              values: ['coupon', 'bank_transfer', 'gift_card']
+              # values: ['credit_card', 'coupon', 'bank_transfer', 'gift_card']
+              severity_level: warn
+              kpi_category: Accuracy

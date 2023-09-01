@@ -32,7 +32,8 @@ models:
         description: Count of the number of orders a customer has placed
         tests:
           - dq_tools.expression_is_true_db:
-              expression: number_of_orders >= 0
+              expression: number_of_orders < 0
+              # expression: number_of_orders >= 0
 
       - name: total_order_amount
         description: Total value (AUD) of a customer's orders
