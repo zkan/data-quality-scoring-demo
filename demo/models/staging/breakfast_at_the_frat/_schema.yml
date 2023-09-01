@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: stg_breakfast_at_the_frat__products
+    # tests:
+    #   - dq_tools.equal_rowcount_where_db:
+    #       compare_model: ref('stg_breakfast_at_the_frat__products')
+    #       where: category not in ('BAG SNACKS')
+    #       compare_model_where: category not in ('BAG SNACKS')
+    columns:
+      - name: upc
+        # tests:
+        #   - dq_tools.unique_where_db
+        #   - dq_tools.not_null_where_db
+  - name: stg_breakfast_at_the_frat__stores
+  - name: stg_breakfast_at_the_frat__transactions

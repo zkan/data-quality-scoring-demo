@@ -4,8 +4,8 @@ demo:
       type: bigquery
       method: service-account
       project: dataengineercafe
-      dataset: breakfast_at_the_frat
-      keyfile: dataengineercafe-admin-bfd4db61182a.json
+      dataset: dbt_zkan
+      keyfile: dataengineercafe-data-quality-scoring-demo-c5d73068657c.json
       location: asia-southeast1
       fixed_retries: 1
       priority: interactive
